@@ -1,5 +1,6 @@
 package com.globant.web.pages;
 
+import com.globant.web.utils.BasePage;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -7,7 +8,7 @@ import org.openqa.selenium.support.FindBy;
 
 import java.util.List;
 
-public class CartPage extends BasePage{
+public class CartPage extends BasePage {
     @FindBy(id = "checkout")
     private WebElement checkoutButton;
     @FindBy(id = "remove-sauce-labs-backpack")
@@ -22,8 +23,13 @@ public class CartPage extends BasePage{
     public CartPage(WebDriver driver) {
         super(driver);
     }
-    public Boolean isCartDisplayed(){
+    public Boolean isCartPageDisplayed(){
         return isElementDisplayed(checkoutButton);
+    }
+    public void removeProductsToCart(){
+        clickOnElement(removeP1);
+        clickOnElement(removeP2);
+        clickOnElement(removeP3);
     }
     public int nRemovedProducts(){
         List<WebElement> removedCartItems = driver.findElements(By.className("removed_cart_item"));
@@ -31,16 +37,6 @@ public class CartPage extends BasePage{
     }
     public WebElement getCheckoutButton() {
         return checkoutButton;
-    }
-
-    public WebElement getRemoveP1() {
-        return removeP1;
-    }
-    public WebElement getRemoveP2() {
-        return removeP2;
-    }
-    public WebElement getRemoveP3() {
-        return removeP3;
     }
 
 }

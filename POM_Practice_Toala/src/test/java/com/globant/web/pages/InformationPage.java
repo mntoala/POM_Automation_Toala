@@ -1,10 +1,11 @@
 package com.globant.web.pages;
 
+import com.globant.web.utils.BasePage;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
-public class InformationPage extends BasePage{
+public class InformationPage extends BasePage {
     @FindBy(id = "first-name")
     private WebElement firstName;
     @FindBy(id = "last-name")
@@ -30,11 +31,14 @@ public class InformationPage extends BasePage{
     public void enterPostalCode(String code) {
         postalCode.sendKeys(code);
     }
-    public Boolean isCheckoutDisplayed(){
+    public void enterInformationPage(String firstName, String lastName, String postalCode){
+        enterFirstName(firstName);
+        enterLastName(lastName);
+        enterPostalCode(postalCode);
+        clickOnElement(continueButton);
+    }
+    public Boolean isInformationPageDisplayed(){
         return isElementDisplayed(infoCard);
     }
 
-    public WebElement getContinueButton() {
-        return continueButton;
-    }
 }

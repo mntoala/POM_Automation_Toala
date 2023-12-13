@@ -1,5 +1,6 @@
 package com.globant.web.pages;
 
+import com.globant.web.utils.BasePage;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;

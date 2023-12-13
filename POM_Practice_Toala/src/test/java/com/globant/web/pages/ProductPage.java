@@ -1,10 +1,11 @@
 package com.globant.web.pages;
 
+import com.globant.web.utils.BasePage;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
-public class ProductPage extends BasePage{
+public class ProductPage extends BasePage {
     @FindBy(id = "back-to-products")
     private  WebElement backToProducts;
     @FindBy(name = "add-to-cart-sauce-labs-backpack")
@@ -14,7 +15,7 @@ public class ProductPage extends BasePage{
         super(driver);
     }
 
-    public Boolean isProductDisplayed(){
+    public Boolean isProductPageDisplayed(){
         return isElementDisplayed(backToProducts);
     }
 
